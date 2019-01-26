@@ -1,5 +1,5 @@
 from abc import ABCMeta, abstractmethod
-#'{:>{}}'.format('text',5)
+
 
 class menu(metaclass=ABCMeta):
     @abstractmethod
@@ -9,7 +9,7 @@ class menu(metaclass=ABCMeta):
         return (type(self).__name__)
     def show(self,deep=0)->None:
         print(' '*deep*2,str(self))
-        #print('{:>{}}'.format(str(self),deep*3))
+
 
 class category(menu):
     def __init__(self,name):
@@ -27,7 +27,7 @@ class category(menu):
         
     def show(self, deep=0):
         print(' '*deep*2,self.name+':')
-        #print('{:>{}}:'.format(self.name,deep*3)+'deep:'+str(deep))
+
         for o in self.obj:
             o.show(deep+1)
     
@@ -109,9 +109,7 @@ drinks.add(alcohol_drinks)
 MENU.add(italian_menu)
 MENU.add(asian_menu)
 MENU.add(drinks)
-#MENU.print()
 MENU.remove(drinks)
-#MENU.print()
 MENU.add(drinks)
 MENU.show()
 
